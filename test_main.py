@@ -2,6 +2,7 @@
 Test goes here
 
 """
+
 import subprocess
 
 
@@ -29,58 +30,6 @@ def test_extract():
 #     assert "Transforming data..." in result.stdout
 
 
-# def test_update_record():
-#     """tests update_record"""
-#     result = subprocess.run(
-#         [
-#             "python",
-#             "main.py",
-#             "update_record",
-#             "30",
-#             "20",
-#             "8",
-#             "Rain",
-#             "2006-1-30",
-#             "57",
-#         ],
-#         capture_output=True,
-#         text=True,
-#         check=True,
-#     )
-#     assert result.returncode == 0
-
-
-# def test_delete_record():
-#     """tests delete_record"""
-#     result = subprocess.run(
-#         ["python", "main.py", "delete_record", "37"],
-#         capture_output=True,
-#         text=True,
-#         check=True,
-#     )
-#     assert result.returncode == 0
-
-
-# def test_create_record():
-#     """tests create_record"""
-#     result = subprocess.run(
-#         [
-#             "python",
-#             "main.py",
-#             "update_record",
-#             "37",
-#             "20",
-#             "8",
-#             "Rain",
-#             "2006-1-30",
-#         ],
-#         capture_output=True,
-#         text=True,
-#         check=True,
-#     )
-#     assert result.returncode == 0
-
-
 # def test_general_query():
 #     """tests general_query"""
 #     result = subprocess.run(
@@ -88,19 +37,13 @@ def test_extract():
 #             "python",
 #             "main.py",
 #             "general_query",
-#             "SELECT * FROM Centralpark WHERE Max_TemperatureF = '37'",
+#             """SELECT t2.Performer, t2.Show, COUNT(t2.Show) AS total_show_played
+#             FROM default.performerdb t2
+#             JOIN default.showdb t1 ON t2.id = t1.id
+#             GROUP BY t2.Show
+#             ORDER BY total_show_played DESC
+#             LIMIT 10""",
 #         ],
-#         capture_output=True,
-#         text=True,
-#         check=True,
-#     )
-#     assert result.returncode == 0
-
-
-# def test_read_data():
-#     """tests read_data"""
-#     result = subprocess.run(
-#         ["python", "main.py", "read_data"],
 #         capture_output=True,
 #         text=True,
 #         check=True,
@@ -111,8 +54,4 @@ def test_extract():
 if __name__ == "__main__":
     test_extract()
     # test_transform_load()
-    # test_create_record()
-    # test_read_data()
-    # test_update_record()
-    # test_delete_record()
     # test_general_query()

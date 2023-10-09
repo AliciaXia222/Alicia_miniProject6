@@ -9,9 +9,6 @@ format:
 	black *.py 
 
 lint:
-	#disable comment to test speed
-	#pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
-	#ruff linting is 10-100X faster than pylint
 	ruff check *.py mylib/*.py
 
 container-lint:
@@ -46,4 +43,4 @@ extract:
 # 	python main.py transform_load
 
 # query:
-# 	python main.py general_query "SELECT * FROM entral-park-raw WHERE Max='CentralPark';"
+# 	python main.py general_query "SELECT t2.Performer, t2.Show, COUNT(t2.Show) AS total_show_played FROM default.performerdb t2 JOIN default.showdatadb t1 ON t2.id = t1.id GROUP BY t2.Show ORDER BY total_show_played DESC LIMIT 10"

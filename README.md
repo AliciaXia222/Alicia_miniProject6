@@ -1,61 +1,37 @@
 [![CI](https://github.com/nogibjj/Alicia_miniProject5/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Alicia_miniProject5/actions/workflows/cicd.yml)
-## SQLite Lab
+## Mini Project 6
 
 ### Goal:
 
 * Use Copilot to support me writing the code.
-* ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
-For the ETL-Query lab:
-* [E] Extract a dataset from a URL on github 
-* [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-* [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
-* [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
+* Connect codespace with cloud database "databricks" to enpower the local computer's limitation.
+* Write advanced SQL query to mulnipulate data and solve the complicated problem
 
-#### Tasks:
+### Advanced Query:
 
-* Fork this project and get it to run
-* Make the query more useful and not a giant mess that prints to screen
-* Convert the main.py into a command-line tool that lets you run each step independantly
-* Fork this project and do the same thing for a new dataset you choose
-* Make sure your project passes lint/tests and has a built badge
-* Include an architectural diagram showing how the project works
+<img width="605" alt="Screenshot 2023-10-08 at 9 50 55 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject4/assets/143651934/dad03812-b676-415c-ab80-65933ea3d1b4">
 
-#### Reflection Questions
+* Dictionary:
 
-* What challenges did you face when extracting, transforming, and loading the data? 
-I need to not only write the SQL query but also learn how to write python code to pack SQL code.
-* What insights or new knowledge did you gain from querying the SQLite database?
-The Primary key is very important value which can be used to locate where I should update my data value.
-* How can SQLite and SQL help make data analysis more efficient? What are the limitations?
-For the fix process, it can be really fast and automatically deploy within a second, but if there is any change, the whole structure
-will have to change for it, that will cost a lot of labor.
-* What AI assistant did you use and how did it compare to others you've tried? What are its strengths and weaknesses?
-I used copilot, I think the prompt code it generate is really helpful even I am in different document, it still can follow my thought,
-that's really amazing.
+Performer: The name of the actor, according to IMDb.
+Show: The television show where this actor appeared in more than half the episodes
+Score_per_year: #LEAD + #Shows + 0.25*(#SUPPORT) / "Years Since"
+
+The query retrieves data from two tables (default.performerdb and default.showdb), performs an inner join based on the id column, calculates the count for each type of shows being played, orders the results by total_shows_played in descending order, and limits the output to the top 10 rows. This query can help identify the most played shows.
+
 
 #### Here is my .lib file
 
-I seperate the action into 4 parts to help me do CRUD wth SQL
+I seperated the query into 3 parts saved seperatedly in .lib files to help me do CRUD wth SQL automatically with Makefile.
 
-<img width="248" alt="Screenshot 2023-10-01 at 10 59 47 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/5d3cda63-d594-482e-be0e-f9c520be6f16">
+* extract.py
 
-#### Extract the file
+<img width="666" alt="Screenshot 2023-10-08 at 10 03 51 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject4/assets/143651934/26fcac6e-1905-4612-acf2-ac1a13941e0b">
 
-<img width="685" alt="Screenshot 2023-10-01 at 11 16 34 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/fe33e81a-96b8-4847-86a5-820c8eda9ad2">
+* query.py
 
-#### Create a function
+<img width="361" alt="Screenshot 2023-10-08 at 10 05 06 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject4/assets/143651934/da2be775-215e-49e8-af71-b2a270238951">
 
-`Create_Records` to create records in database
-<img width="438" alt="Screenshot 2023-10-01 at 11 40 35 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/121e0e67-14ad-4648-aed2-7fb55e55727b">
+* transform_load.py
 
-`Update_Records` to change the contents in each column
-<img width="664" alt="Screenshot 2023-10-01 at 11 40 47 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/2653a99a-d92f-488b-9cba-f0b65b7b4c6a">
-
-`Delete_Records` to delete the records in database
-`Read_Data` to read the file into database
-
-<img width="655" alt="Screenshot 2023-10-01 at 11 40 54 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/c4a457ec-ecae-47d0-a485-0de4eda9f886">
-
-#### Log the SQL query
-
-<img width="550" alt="Screenshot 2023-10-01 at 11 43 15 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject2/assets/143651934/7140d883-9132-455e-8854-aee1c18fb8be">
+<img width="567" alt="Screenshot 2023-10-08 at 10 06 28 PM" src="https://github.com/nogibjj/IDS706_Alicia_miniproject4/assets/143651934/244b94a2-9819-4a97-842f-cce1bd8f71f8">
